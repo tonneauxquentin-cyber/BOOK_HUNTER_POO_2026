@@ -44,7 +44,7 @@
                             href="books.html">Books</a>
                         <a
                             class="text-gray-300 hover:text-white px-3 py-2"
-                            href="authors.html">Authors</a>
+                            href="?authors=index">Authors</a>
                     </div>
                 </div>
             </div>

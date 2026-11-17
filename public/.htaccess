@@ -1,0 +1,34 @@
+RewriteEngine on
+
+# --------------------------------------------
+# Fichiers ou dossiers réels (css, js, images, pdf, zip, etc.) : pas de réécriture, on les sert tels quels
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# --------------------------------------------
+# RÈGLES DE RÉ-ÉCRITURE
+
+# BOOKS INDEX
+# PATTERN: /books
+# URL: ?books=index
+RewriteRule ^books$ index.php?books=index [L]
+
+# BOOKS SHOW
+# PATTERN: /books/:id/:slug
+# URL: ?books=show&id=x
+RewriteRule ^books\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*[a-z0-9])$ index.php?books=show&id=$1 [L]
+
+# ROUTE AUTHORS.INDEX
+# PATTERN: /authors
+# URL: ?authors=index
+RewriteRule ^authors$ ?authors=index [L]
+
+# AUTHORS SHOW
+# PATTERN: /authors/:id/:slug
+# URL: ?authors=show&id=x
+RewriteRule ^authors\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*[a-z0-9])$ index.php?authors=show&id=$1 [L]
+# --------------------------------------------
+# FALLBACK
+# Toute autre URL non prise en charge par une route ci-dessus part vers le front controller
+RewriteRule ^ index.php [L]
