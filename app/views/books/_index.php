@@ -17,14 +17,9 @@
                 alt="<?php echo $book->title; ?>" />
             <div class="p-4">
                 <div class="pb-4">
-                    <span
-                        class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2">
-                        #society
-                    </span>
-                    <span
-                        class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                        #bestseller
-                    </span>
+                    <?php $tags = $book->tags;
+                    include '../app/views/tags/_index.php'; ?>
+
                 </div>
                 <h3 class="text-xl font-bold">
                     <?php echo $book->title; ?>
@@ -37,7 +32,7 @@
                     <span class="text-yellow-500 mr-1">
                         <i class="fas fa-star"></i>
                     </span>
-                    <span>8.9</span>
+                    <span><?php echo $book->notation; ?></span>
                 </div>
 
 
