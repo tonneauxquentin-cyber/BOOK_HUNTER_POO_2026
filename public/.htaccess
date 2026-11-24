@@ -17,7 +17,7 @@ RewriteRule ^books$ ?books=index [L]
 # BOOKS SHOW
 # PATTERN: /books/:id/:slug
 # URL: ?books=show&id=x
-RewriteRule ^books\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*[a-z0-9])$ index.php?books=show&id=$1 [L]
+RewriteRule ^books\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*[a-z0-9])$ ?books=show&id=$1 [L]
 
 # ROUTE AUTHORS.INDEX
 # PATTERN: /authors
@@ -27,7 +27,7 @@ RewriteRule ^authors$ ?authors=index [L]
 # AUTHORS SHOW
 # PATTERN: /authors/:id/:slug
 # URL: ?authors=show&id=x
-RewriteRule ^authors\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*[a-z0-9])$ index.php?authors=show&id=$1 [L]
+RewriteRule ^authors\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*[a-z0-9])$ ?authors=show&id=$1 [L]
 # --------------------------------------------
 # FALLBACK
 # Toute autre URL non prise en charge par une route ci-dessus part vers le front controller
