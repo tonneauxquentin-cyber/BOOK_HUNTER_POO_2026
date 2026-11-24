@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
 
-class Category {
-    public $id, $name, $created_at;
+class Category extends \Core\Model {
+    protected $id, $name, $created_at;
 }

@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-class Tag {
-    public $id, $name, $created_at;
+class Tag extends \Core\Model {
+    protected $id, $name, $created_at;
     
 }

@@ -1,26 +1,21 @@
 <?php
 namespace App\Models;
 
-class Book {
+class Book extends \Core\Model {
 
     //Champs natifs
-    public $id, $title, $publicated_at, $resume, $cover, $isbn, $author_id, $category_id, $created_at, $notation;
+    protected $id, $title, $publicated_at, $resume, $cover, $isbn, $author_id, $category_id, $created_at, $notation;
     
     //Champs issus de liaisons
-    private $author, $category, $tags;
+    protected $author, $category, $tags;
 
-    public function __get(string $property): mixed {
-        $setterName = 'set' . ucfirst($property);
-        if(method_exists($this, $setterName))$this->$setterName();
-        return $this->$property;
-    }
-    private function setAuthor(): void {
+    protected function setAuthor(): void {
         $this->author = AuthorsManager::findOneById($this->author_id);
     }
-    private function setCategory():void {
+    protected function setCategory():void {
         $this->category = CategoriesManager::findOneById($this->category_id);
     }
-    private function setTags():void {
+    protected function setTags():void {
         $this->tags = TagsManager::findAllByBookId($this->id);
     }
 }

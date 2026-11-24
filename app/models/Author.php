@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
 
-class Author {
-    public $id, $firstname, $lastname, $biography, $picture, $created_at;
+class Author extends \Core\Model {
+    protected $id, $firstname, $lastname, $biography, $picture, $created_at;
     
     
 }
